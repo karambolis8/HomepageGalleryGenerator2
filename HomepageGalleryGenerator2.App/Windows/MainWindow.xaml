@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:HomepageGalleryGenerator2.App.Windows"
         mc:Ignorable="d"
-        Title="MainWindow" Height="400" Width="750">
+        Title="MainWindow" MinHeight="350" Height="350" MinWidth="750" Width="750">
     <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
@@ -30,17 +30,29 @@
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
-                        <ColumnDefinition Width="Auto" />
+                        <ColumnDefinition Width="Auto" MinWidth="60" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-                    <TextBox Grid.Row="0" Grid.Column="0" />
-                    <ComboBox Grid.Row="0" Grid.Column="1" />
-                    <TextBox Grid.Row="0" Grid.Column="2" />
-                    <TextBox Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto"/>
+                    <StackPanel Grid.Row="0" Grid.Column="0" >
+                        <Label Content="Model" />
+                        <TextBox />
+                    </StackPanel>
+                    <StackPanel Grid.Row="0" Grid.Column="1">
+                        <Label Content="Skala" />
+                        <ComboBox />
+                    </StackPanel>
+                    <StackPanel Grid.Row="0" Grid.Column="2" >
+                        <Label Content="Producent" />
+                        <TextBox />
+                    </StackPanel>
+                    <DockPanel Grid.Column="0" Grid.ColumnSpan="3" Grid.Row="1" >
+                        <Label DockPanel.Dock="Top" Content="Opis" />
+                        <TextBox DockPanel.Dock="Bottom" AcceptsReturn="True" TextWrapping="Wrap" VerticalScrollBarVisibility="Auto" />
+                    </DockPanel>
                 </Grid>
             </GroupBox>
             <GroupBox Grid.Column="1" Grid.Row="0">
@@ -59,8 +71,13 @@
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="Auto" />
                         </Grid.ColumnDefinitions>
-                        <TextBox Grid.Column="0" />
-                        <Button Grid.Column="1" Content="..." />
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.ColumnSpan="2" Grid.Column="0" Grid.Row="0" Content="Pliki" />
+                        <TextBox Grid.Column="0" Grid.Row="1" />
+                        <Button Grid.Column="1" Grid.Row="1" Content="..." />
                     </Grid>
                     <Grid Grid.Column="0" Grid.Row="1" MinWidth="100">
                         <Grid.RowDefinitions>
@@ -80,8 +97,14 @@
                             <ColumnDefinition Width="*" />
                             <ColumnDefinition Width="*" />
                         </Grid.ColumnDefinitions>
-                        <TextBox Grid.Column="0" />
-                        <TextBox Grid.Column="1" />
+                        <StackPanel Grid.Column="0">
+                            <Label Content="Opis obrazków" />
+                            <TextBox />
+                        </StackPanel>
+                        <StackPanel Grid.Column="1">
+                            <Label Content="Folder img na WWW" />
+                            <TextBox />
+                        </StackPanel>
                     </Grid>
                     <Canvas Grid.Column="1" Grid.Row="1" Width="300" Height="200" VerticalAlignment="Top"/>
                 </Grid>
